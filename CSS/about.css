@@ -1,0 +1,76 @@
+body{
+    background-image: url("/Images/backgroundSky.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
+}
+.title{
+    font-family: "Papyrus";
+}
+
+/* Menu */
+#siteHeader {
+    position: sticky;
+    display: flex;
+    justify-content: space-between; /* Ensures spacing between child elements */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%; /*Ensures full width of the container */
+    height: 100px;
+
+    position: sticky;
+    background: linear-gradient(to right, white, skyblue);
+    border-bottom: 2px solid gray;
+}
+#myWork {
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    max-height: 100%;
+}
+#myWork a:hover{
+    height: 100px;
+}
+#myWork img:hover {
+    animation: logoColorChange 2s linear infinite; 
+}
+@keyframes logoColorChange {
+    0% {filter: hue-rotate(0deg);}
+    20% {filter: hue-rotate(72deg);}
+    40% {filter: hue-rotate(144deg);}
+    60% {filter: hue-rotate(216deg);}
+    80% {filter: hue-rotate(288deg);}
+    100% {filter: hue-rotate(360deg);}
+}
+
+#myMedia {
+    display: flex;
+    justify-content: right;
+}
+#myMedia ul{
+    list-style-type: none;
+    display: flex;
+    margin: 25px;
+    gap: 25px;
+
+    font-family: "League Spartan";
+    font-size: 50px;
+}
+#myMedia li{
+    color: white;
+}
+#myMedia a{
+    text-decoration: none;
+    color: black;
+}
+#myMedia a:hover{
+    animation: 2s linear infinite running myColorChange;
+}
+@keyframes myColorChange{
+    0%{color: pink;}
+    20%{color: lightsalmon;}
+    40%{color: lightyellow;}
+    60%{color: lightgreen;}
+    80%{color: lightblue;}
+    100%{color: plum;}
+}

@@ -1,0 +1,196 @@
+body{
+    background-image: url("/Images/backgroundSky.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
+    /* text-align: left; */
+    /* margin-left: 250px;
+    margin-right: 250px; */
+}
+.title{
+    font-family: "Papyrus";
+}
+
+/* Menu */
+#siteHeader {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between; /* Ensures spacing between child elements */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%; /*Ensures full width of the container */
+    height: 100px;
+    background: linear-gradient(to right, white, skyblue);
+    border-bottom: 2px solid gray;
+    z-index: 3; 
+}
+#myWork {
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    max-height: 100%;
+}
+#myWork a:hover{
+    height: 100px;
+}
+#myWork img:hover {
+    animation: logoColorChange 2s linear infinite; 
+}
+@keyframes logoColorChange {
+    0% {filter: hue-rotate(0deg);}
+    20% {filter: hue-rotate(72deg);}
+    40% {filter: hue-rotate(144deg);}
+    60% {filter: hue-rotate(216deg);}
+    80% {filter: hue-rotate(288deg);}
+    100% {filter: hue-rotate(360deg);}
+}
+
+#myMedia {
+    display: flex;
+    justify-content: right;
+}
+#myMedia ul{
+    list-style-type: none;
+    display: flex;
+    margin: 25px;
+    gap: 25px;
+
+    font-family: "League Spartan";
+    font-size: 50px;
+}
+#myMedia li{
+    color: white;
+}
+#myMedia a{
+    text-decoration: none;
+    color: black;
+}
+#myMedia a:hover{
+    animation: 2s linear infinite running myColorChange;
+}
+@keyframes myColorChange{
+    0%{color: pink;}
+    20%{color: lightsalmon;}
+    40%{color: lightyellow;}
+    60%{color: lightgreen;}
+    80%{color: lightblue;}
+    100%{color: plum;}
+}
+
+/*Carousel*/
+#instruction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imageCarousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+.slider{
+    position: relative;
+    width: 220px;
+    height: 220px;
+    transform: perspective(800px) rotateY(0 deg);
+    transform-style: preserve-3d;
+    animation: animate 30s linear infinite;
+}
+@keyframes animate{
+    0%{transform: perspective(1000px) rotateY(0deg);}
+    100%{transform: perspective(1000px) rotateY(-360deg);}
+}
+.slider span{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    /* (360)/(# images) deg */
+    transform: rotateY(calc(var(--i) * 24deg))
+    translateZ(500px);
+}
+.slider span img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+    transition: 0.6s ease; 
+}
+.slider span img:hover{
+    transform: translateY(-10px) scale(1.1);
+}
+
+/*Portfolio*/
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.pAll{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    object-position: center;
+    position: relative;
+}
+.pALL:hover{
+    background-color: pink;
+}
+.pInfo{
+    /* text-align: center; */
+    padding: 10px 20px;
+}
+.page1{
+    display: block;
+    position: relative;
+}
+.page2{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; /* Place page2 above page1 when visible */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; 
+}
+.pAll:hover .page1 {
+    opacity: 0; /* Hide page1 */
+}
+
+.pAll:hover .page2 {
+    opacity: 1; /* Show page2 */
+}
+
+/* 
+.page1 {
+    display: block;
+    position: relative;
+    z-index: 1; 
+}
+
+.page2 {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+.imageContainer:hover .page2 {
+    opacity: 1; 
+}
+
+.imageContainer:hover .page1 {
+    opacity: 0;  */
